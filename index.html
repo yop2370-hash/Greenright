@@ -1,9 +1,9 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffffff"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GreenLight"><meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#F4F5F2"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GreenLight"><meta name="format-detection" content="telephone=no">
 <title>GreenLight</title>
 <style>[hidden]{display:none!important}img{max-width:100%}</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap"></noscript>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <style>
 :root{--pt:#75B56B;--pt2:#66A85D;--gt:#4E8F47;--leaf:#A9D69B;--dot:#75B56B;--soft:#EAF5E6;--mint:#F5F8F4;--ink:#27332D;--mu:#75827A;--ph:#9AA69E;--off:#A3AEA7;--ln:#E4EAE3;--il:#E1EAE2;--dv:#EEF3EF;--am:#B7791F;--bd:#CFE5C8}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
@@ -162,7 +162,7 @@ input,select,textarea{font-size:16px}
  #tabs .fab:not([disabled]):hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(82,168,90,.35)}
 
  /* 오늘 화면: 2단 대시보드 */
- #home.on{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:24px;align-content:start}
+ #home.on,#home.out{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:24px;align-content:start}
  #home>.top{grid-column:1/-1;margin-bottom:24px}
  #home>.nud{grid-column:1/-1;order:1}
  #home>h3{grid-column:1/-1;order:2;margin-top:16px!important}
@@ -172,13 +172,13 @@ input,select,textarea{font-size:16px}
  #home h2{font-size:30px;line-height:40px}
 
  /* 기록 화면: 달력 | 그날 식사 */
- #rec.on{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:32px;align-content:start;align-items:start}
+ #rec.on,#rec.out{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:32px;align-content:start;align-items:start}
  #rec .recL{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:20px 22px 22px}
  #rec .recR>h3{margin-top:8px!important}
  #rec .cal button{height:56px}
 
  /* 리포트 화면: 2×2 카드 */
- #rep.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px;align-content:start}
+ #rep.on,#rep.out{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px;align-content:start}
  #rep>.cn,#rep>p.cap,#rep>.btn{grid-column:1/-1}
  #rep>.btn{justify-self:end;width:auto;padding:0 28px}
  #rep .bars{height:180px}
@@ -215,6 +215,226 @@ input,select,textarea{font-size:16px}
 }
 @media (min-width:1400px) and (min-height:540px){:root{--side:272px}#home.on,#rep.on{column-gap:28px}}
 
+
+/* =====================================================================
+   GreenLight 2026 · Minimal theme
+   ===================================================================== */
+:root{
+ --pt:#1FA463;--pt2:#178A52;--gt:#12804A;--leaf:#4CC17E;--dot:#1FA463;--soft:#E6F5EC;--mint:#F2F8F4;
+ --ink:#141A16;--mu:#6B746E;--ph:#A3ABA5;--off:#A9B1AB;--ln:#E9ECE9;--il:#E6E9E6;--dv:#EFF1EF;--am:#C2700C;--bd:#E2E6E2;
+ --bg:#F4F5F2;--fill:#F2F4F1;--ease:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.32,.72,0,1)
+}
+html,body{background:var(--bg)}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+#app{box-shadow:0 0 0 1px rgba(20,26,22,.04)}
+.scr{background:#fff}
+#home,#rec,#rep,#me,#data,#notif,#help,#res{background:var(--bg)}
+.scr.on{z-index:1}.scr.out{display:flex;z-index:0;pointer-events:none}
+.scr::-webkit-scrollbar{width:0;height:0}
+
+/* 타이포그래피 */
+h2{font-size:26px;line-height:34px;font-weight:800;letter-spacing:-.035em}
+.h20{font-size:20px;line-height:28px;font-weight:750;letter-spacing:-.03em}
+.ct{font-size:17px;line-height:24px;font-weight:750;letter-spacing:-.02em}
+.sub{font-size:15px;line-height:23px}
+.eyebrow{font-size:13px;line-height:18px;font-weight:600;color:var(--mu);margin-bottom:4px}
+.bn,.goal b,.nut b,.mx3 b,.rgw b,.m3i b,.water b{font-variant-numeric:tabular-nums}
+
+/* 버튼 */
+.btn{height:56px;border-radius:16px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.btn[disabled]{opacity:1;background:#DCE2DD;color:#fff}
+.btn.sec{background:#fff;border:1px solid var(--bd);color:var(--ink)}
+.btn.sec:not([disabled]):active{background:var(--fill)}
+.btn.kk{font-weight:700}
+.ib{border-radius:14px}
+.lnk{text-decoration:none;font-weight:600}
+.lnk.gray{font-weight:500}
+
+/* 입력 */
+.fld{height:54px;border-radius:14px;border:1.5px solid transparent;background:var(--fill);transition:border-color .2s,background-color .2s,box-shadow .2s}
+.fld:focus{background:#fff;border-color:var(--pt);box-shadow:0 0 0 4px rgba(31,164,99,.12)}
+select.fld{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%236B746E' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.bigin input{height:72px;font-size:34px;border-radius:18px}
+.lab{font-weight:600}
+
+/* 카드 */
+.card{border:0;border-radius:22px;padding:18px;box-shadow:0 0 0 1px rgba(20,26,22,.05),0 1px 2px rgba(20,26,22,.04)}
+.card.mint{background:var(--mint);box-shadow:none}
+.card.f{padding:18px}.card.list{padding:2px 18px}
+.ico{border-radius:16px}
+
+/* 칩 · 선택지 */
+.chip{height:28px;border-radius:99px;font-weight:650}
+.chip.m{height:40px;background:var(--fill);color:var(--ink);font-weight:550;transition:background-color .2s,color .2s}
+.chip.m.on{background:var(--ink);color:#fff;box-shadow:none}
+.chip.w{background:var(--fill)}
+.opt{height:60px;border-radius:18px;border:1.5px solid var(--ln);font-weight:650;position:relative}
+.opt.on{border-color:var(--ink);background:#fff;box-shadow:inset 0 0 0 .5px var(--ink)}
+.opt.on::after{content:"";position:absolute;right:18px;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.2l2.4 2.3 4.6-5'/%3E%3C/svg%3E") center no-repeat}
+.ck{border-radius:8px;border-color:#CDD4CF;transition:background-color .2s,border-color .2s}.ck.on{background:var(--ink);border-color:var(--ink)}
+
+/* 진행 막대 */
+.pbar{height:6px;border-radius:99px;background:#ECEFEC}
+.pbar i{background:var(--pt);border-radius:99px}
+
+/* 헤더 */
+.hd2{min-height:48px}.ht{font-weight:750;letter-spacing:-.02em}
+
+/* ===== 오늘(홈) ===== */
+.top{align-items:center;margin:8px 0 18px}
+.av{background:#fff;color:var(--ink);box-shadow:0 0 0 1px rgba(20,26,22,.06)}
+.hero{background:var(--ink);color:#fff;padding:22px;box-shadow:0 12px 30px -12px rgba(20,26,22,.45)}
+.hero .cap{color:rgba(255,255,255,.6)}
+.hero .bn{color:#fff;font-size:40px;line-height:46px;margin-top:2px}
+.hero .bn small{color:rgba(255,255,255,.55);font-weight:500}
+.hero .hero-sub{font-size:14px;color:rgba(255,255,255,.75);margin-top:6px}
+.hero .rgw b{color:#fff;font-size:18px}.hero .rgw span{color:rgba(255,255,255,.55)}
+.ring-bg{stroke:rgba(255,255,255,.12)}.ring-fg{stroke:#5BD08A}
+.nud{display:flex;align-items:center;gap:8px;background:#FFF4E5;color:var(--am);border-radius:14px;padding:10px 14px;margin:0 0 12px;font-size:14px}
+.nud::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--am);flex:none}
+.m3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.m3i span{font-size:12px;color:var(--mu);font-weight:600}
+.m3i b{display:block;font-size:20px;line-height:26px;font-weight:800;letter-spacing:-.02em;margin:2px 0 8px}
+.m3i b small{font-size:12px;font-weight:500;color:var(--ph);margin-left:2px}
+.m3i .pbar{margin:0 0 6px}.m3i em{font-style:normal;font-size:11.5px;color:var(--mu)}
+.water{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:16px;border-top:1px solid var(--dv)}
+.water>div:first-child{min-width:96px}.water b{display:block;font-size:17px;line-height:22px;font-weight:800}
+.water b small{font-size:12px;color:var(--ph);font-weight:500}
+.water .pbar{flex:1;margin:0}.water .pbar i{background:#53B3E8}
+.water .chip{height:34px;padding:0 14px;background:#E8F4FB;color:#1C7FB5}
+.sec-h{display:flex;justify-content:space-between;align-items:center;margin:14px 2px 10px}
+.sec-h .lnk{font-size:14px}
+.gh{font-size:12px;letter-spacing:.02em;color:var(--ph);margin:12px 0 2px;font-weight:650}
+.ml{border-top:1px solid var(--dv);padding:12px 0}.th2{width:48px;height:48px;border-radius:14px}
+.mk{font-weight:750}
+
+/* 기록 · 리포트 */
+.cal button{height:46px;width:46px;margin:2px auto;border-radius:50%;font-weight:500;transition:background-color .2s,color .2s}
+.cal button.on{background:var(--ink);color:#fff}
+.cal button.dot::after{bottom:4px;width:4px;height:4px;margin-left:-2px;background:var(--pt)}
+.cal button.on.dot::after{background:#fff}
+.cal.wk{font-weight:600;color:var(--ph)}
+.bars i{border-radius:8px;background:var(--leaf);transform-origin:bottom;max-width:22px}
+.bars em{color:var(--mu)}
+
+/* 마이 */
+.prof .av{background:var(--ink);color:#fff;box-shadow:none}
+.goal b{font-weight:800}
+.mrw{height:58px;font-weight:550}.mrw svg{color:var(--ph)}
+
+/* 분석 · 결과 */
+.pv,.rimg,.mph{border-radius:24px}
+.v{border-radius:18px}
+.nut div{background:var(--fill);border-radius:14px;padding:12px 4px}
+.stp{border:0;background:var(--fill);border-radius:12px}
+.bth{border-radius:32px;animation:glPulse 1.8s var(--ease) infinite}
+@keyframes glPulse{50%{transform:scale(.96);opacity:.85}}
+
+/* ===== 하단 탭: 떠 있는 유리 바 ===== */
+@media not all and (min-width:900px) and (min-height:540px){
+ .scr.pad{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+ #tabs{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));height:64px;padding:0 6px;border:0;border-radius:24px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(1.8) blur(20px);backdrop-filter:saturate(1.8) blur(20px);box-shadow:0 0 0 1px rgba(20,26,22,.06),0 12px 32px -8px rgba(20,26,22,.18)}
+ #tabs button{font-size:10.5px;font-weight:600;gap:3px;color:var(--ph);transition:color .25s}
+ #tabs button span{display:grid;place-items:center;width:46px;height:28px;border-radius:14px;transition:background-color .3s var(--ease)}
+ #tabs button span svg{width:21px;height:21px}
+ #tabs button.on{color:var(--ink);font-weight:700}
+ #tabs button.on span{background:var(--soft);color:var(--gt)}
+ #tabs .fab{width:50px;height:50px;margin:0 auto;border-radius:18px}
+ #toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+}
+#tabs .fab{background:var(--ink);box-shadow:0 8px 18px -4px rgba(20,26,22,.35)}
+
+/* ===== 시트 · 모달 · 토스트 ===== */
+#dim{display:block;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility 0s linear .35s;background:rgba(20,26,22,.32);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+#dim.on{opacity:1;visibility:visible;transition:opacity .35s var(--ease)}
+#sheet{border-radius:28px 28px 0 0;padding-top:10px;transition:transform .5s var(--spring),visibility 0s linear .5s}
+#sheet.on{transition:transform .5s var(--spring)}
+#sheet .hdl{width:40px;height:5px;border-radius:3px;background:#DDE2DE;margin-bottom:18px}
+.sh{border:0;background:var(--fill);border-radius:20px;padding:18px}
+.sh.p{background:var(--ink);color:#fff;border:0}.sh.p .gi{color:#5BD08A}.sh.p span{color:rgba(255,255,255,.65)}
+.sh .gi{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.08);flex:none}
+.sh:not(.p) .gi{background:#fff}
+#mdl{display:flex;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s linear .3s;background:rgba(20,26,22,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#mdl.on{opacity:1;visibility:visible;transition:opacity .3s var(--ease)}
+.mb{border-radius:28px;padding:26px 22px 22px;transform:translateY(16px) scale(.97);transition:transform .45s var(--spring);box-shadow:0 24px 60px -12px rgba(20,26,22,.3)}
+#mdl.on .mb{transform:none}
+.mb h3{font-size:19px;font-weight:750;letter-spacing:-.02em}
+.mbtn{height:52px;border-radius:16px}.mbtn.g{background:var(--fill);border:0;color:var(--ink)}.mbtn.am{background:#FFF1E3;border:0}
+#toast{background:rgba(20,26,22,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;padding:12px 18px;font-weight:550;transform:translate(-50%,14px) scale(.98);transition:opacity .25s var(--ease),transform .4s var(--spring)}
+#toast.on{transform:translate(-50%,0)}
+
+/* ===== 스플래시 ===== */
+#splash .logo{animation:glRise .9s var(--ease) both}
+#splash .sub{animation:glRise .9s var(--ease) .12s both}
+@keyframes glRise{from{opacity:0;transform:translateY(12px)}}
+#splash .rg{width:96px;height:3px;border:0;border-radius:3px;background:#E8ECE9;position:relative;overflow:hidden;animation:glHide 0s linear 5s forwards}
+#splash .rg::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;border-radius:3px;background:var(--pt);animation:glBar 1.2s var(--ease) infinite}
+@keyframes glBar{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+.bz .rg{border-width:4px;border-color:var(--soft);border-top-color:var(--pt)}
+
+/* ===== 인터랙션: 차분하고 정확한 반응 ===== */
+button:not([disabled]),.lnk{transition:transform .22s var(--ease),box-shadow .25s var(--ease),background-color .2s,border-color .2s,color .2s,opacity .2s}
+@media (hover:hover) and (pointer:fine){
+ button:not([disabled]):hover{transform:none}
+ .lnk:hover{transform:none;filter:none;opacity:.75}
+ .btn:not([disabled]):hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(31,164,99,.45);filter:none}
+ .btn.sec:not([disabled]):hover{box-shadow:0 8px 20px -10px rgba(20,26,22,.25)}
+ .btn.kk:not([disabled]):hover{box-shadow:0 10px 24px -8px rgba(230,200,0,.55)}
+ .opt:not([disabled]):hover,.sh:not([disabled]):hover,.mrw:not([disabled]):hover,.ml:not([disabled]):hover{transform:none;box-shadow:none}
+ .opt:not([disabled]):hover{border-color:#C9D0CB}.sh:not(.p):not([disabled]):hover{background:#ECEFEB}
+ .ml:not([disabled]):hover,.mrw:not([disabled]):hover{opacity:.7}
+ .chip:not([disabled]):hover{transform:none;filter:brightness(.97)}
+ .li:not([disabled]):hover{transform:none;background:var(--fill)}
+ .ib:not([disabled]):hover{background:rgba(20,26,22,.05)}
+ #tabs button:not(.fab):not([disabled]):hover{transform:none;color:var(--ink)}
+ #tabs .fab:not([disabled]):hover{transform:translateY(-1px);box-shadow:0 12px 24px -6px rgba(20,26,22,.4)}
+ .cal button:not([disabled]):not(.on):hover{background:var(--fill)}
+}
+button:not([disabled]):active,.lnk:active{transform:scale(.96)!important;filter:none;transition-duration:.1s}
+.btn:not([disabled]):active,.opt:not([disabled]):active,.sh:not([disabled]):active,.mrw:not([disabled]):active,.ml:not([disabled]):active{transform:scale(.98)!important;box-shadow:none}
+#tabs .fab:not([disabled]):active{transform:scale(.92)!important}
+@media(prefers-reduced-motion:reduce){#splash .rg::after{animation:none}.bth{animation:none}}
+
+/* ===== PC 보정 ===== */
+@media (min-width:900px) and (min-height:540px){
+ html,body,.scr{background:var(--bg)}
+ body.auth .scr,#splash{background:#fff}
+ .scr.camv{background:#1c231f}
+ #tabs{background:#fff}
+ #tabs .fab{background:var(--ink)}
+ #tabs button.on{background:var(--fill);color:var(--ink)}
+ #home>.sec-h{grid-column:1/-1;order:2;margin-top:18px}
+ #home>.hero{padding:30px}
+ #rec .recL{border:0;box-shadow:0 0 0 1px rgba(20,26,22,.05)}
+ #hero{background:linear-gradient(160deg,#E3F3E9 0%,#F4F7F3 70%)}
+}
+
+
+/* ===== 블랙 제거 · 그린 톤 통일 ===== */
+:root{--ink:#1D3326;--mu:#66786C;--ph:#9DB0A3}
+.hero{background:linear-gradient(145deg,#22AE69 0%,#138A50 100%);box-shadow:0 16px 32px -14px rgba(31,164,99,.6)}
+.hero .cap{color:rgba(255,255,255,.75)}.hero .bn small{color:rgba(255,255,255,.7)}.hero .hero-sub{color:rgba(255,255,255,.88)}
+.hero .rgw span{color:rgba(255,255,255,.75)}
+.ring-bg{stroke:rgba(255,255,255,.22)}.ring-fg{stroke:#fff}
+.chip.m.on{background:var(--pt);color:#fff}
+.opt.on{border-color:var(--pt);background:var(--mint);box-shadow:inset 0 0 0 .5px var(--pt)}
+.opt.on::after{background-color:var(--pt)}
+.ck.on{background:var(--pt);border-color:var(--pt)}
+.cal button.on{background:var(--pt)}
+.prof .av{background:var(--pt)}
+.sh.p{background:var(--pt)}.sh.p .gi{color:#fff;background:rgba(255,255,255,.18)}.sh.p span{color:rgba(255,255,255,.82)}
+#tabs .fab{background:var(--pt);box-shadow:0 8px 18px -4px rgba(31,164,99,.5)}
+#tabs button.on{color:var(--gt)}
+#toast{background:rgba(18,128,74,.95)}
+#dim,#mdl{background:rgba(16,70,40,.26)}
+.mb{box-shadow:0 24px 60px -12px rgba(16,70,40,.3)}
+.camv,.camv video{background:#123323}
+@media (hover:hover) and (pointer:fine){#tabs .fab:not([disabled]):hover{box-shadow:0 12px 24px -6px rgba(31,164,99,.55)}}
+@media (min-width:900px) and (min-height:540px){
+ #tabs .fab{background:var(--pt)}
+ #tabs button.on{background:var(--soft);color:var(--gt)}
+ .scr.camv{background:#123323}
+}
 </style></head><body>
 <div id="app">
 <aside id="hero" aria-hidden="true"><img class="logo hero-logo" alt="GreenLight"><h1>오늘 먹은 것을<br>가볍게 기록해요</h1><p class="hero-sub">사진 한 장으로 식사를 남기고,<br>내 몸에 맞춘 참고 정보를 받아 보세요.</p>
@@ -223,8 +443,7 @@ input,select,textarea{font-size:16px}
 
 <section class="scr" id="login"><img class="logo" alt="GREENRIGHT" style="width:130px;margin:6px 0 26px">
 <h2>다시 만나 반가워요</h2><p class="sub">로그인하고 오늘의 기록을 이어가세요.</p>
-<button class="btn kk" style="margin-top:22px" onclick="toast('카카오 로그인은 준비 중이에요')">카카오톡으로 로그인</button>
-<button class="btn sec" style="margin-top:10px" onclick="googleLogin()">Google로 계속하기</button>
+<button class="btn sec" style="margin-top:22px" onclick="googleLogin()">Google로 계속하기</button>
 <div class="dv"><span>또는 이메일로 계속하기</span></div>
 <input class="fld" id="em" type="email" placeholder="이메일 주소" oninput="chk()" autocomplete="email">
 <div class="pw"><input class="fld" id="pw" type="password" placeholder="비밀번호 (6자 이상)" oninput="chk()" autocomplete="current-password"><button class="ib" onclick="eye()" data-ic="eye" aria-label="비밀번호 보기"></button></div>
@@ -301,8 +520,22 @@ const tot=m=>m.items.reduce((a,i)=>({k:a.k+i.k*i.q,c:a.c+i.c*i.q,p:a.p+i.p*i.q,f
 const sum=ls=>{const t=ls.reduce((a,m)=>{const x=tot(m);return{k:a.k+x.k,c:a.c+x.c,p:a.p+x.p,f:a.f+x.f}},{k:0,c:0,p:0,f:0});return{k:r0(t.k),c:r0(t.c),p:r0(t.p),f:r0(t.f)}};
 const tl=(d=day())=>D.logs.filter(l=>l.d==d),mname=m=>m.items.map(i=>i.n).join(' · ');
 let lastTab='home',addDate=null;const AUTH=['login','signup','intro','ob'];const TABS=['home','rec','rep','me'];
-function go(id){document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id===id));const t=TABS.includes(id);if(t)lastTab=id;$('#tabs').classList.toggle('on',t);const au=AUTH.indexOf(id)>-1;document.body.classList.toggle('auth',au);document.body.classList.toggle('inapp',id!=='splash'&&!au);document.querySelectorAll('#tabs [data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===(t?id:lastTab)));if(id!='camv')stopStream();const rf=({home:rHome,rec:rRec,rep:rRep,me:rMe,data:rData,notif:rNotif,help:rHelp})[id];if(rf)rf();$('#'+id).scrollTop=0}
-function sheet(o){$('#dim').classList.toggle('on',!!o);$('#sheet').classList.toggle('on',!!o)}
+const EASE='cubic-bezier(.2,.8,.2,1)',RM=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+const DEP={splash:0,login:1,signup:2,intro:2,ob:3,home:10,rec:10,rep:10,me:10,data:11,notif:11,help:11,camperm:11,meal:12,camv:12,add:13,shot:13,busy:14,res:15};
+let curScr='splash',obPrev=null;
+const anim=(el,k,o)=>{try{return el.animate(k,o)}catch(e){return null}};
+function navDir(a,b){if(TABS.includes(a)&&TABS.includes(b))return'tab';const x=DEP[a]==null?10:DEP[a],y=DEP[b]==null?10:DEP[b];return y>x?'push':y<x?'pop':'fade'}
+function leave(el,dir){if(!el)return;el.classList.add('out');const K={push:[{opacity:1,transform:'none'},{opacity:0,transform:'translateX(-6%)'}],pop:[{opacity:1,transform:'none'},{opacity:0,transform:'translateX(6%)'}],tab:[{opacity:1},{opacity:0}],fade:[{opacity:1},{opacity:0,transform:'scale(.985)'}]}[dir];const a=anim(el,K,{duration:dir=='tab'?160:300,easing:EASE,fill:'forwards'});const done=()=>{el.classList.remove('out');if(a)a.cancel()};if(a)a.onfinish=done;else done()}
+function enter(el,dir){const K={push:[{opacity:0,transform:'translateX(9%)'},{opacity:1,transform:'none'}],pop:[{opacity:0,transform:'translateX(-9%)'},{opacity:1,transform:'none'}],tab:[{opacity:0},{opacity:1}],fade:[{opacity:0,transform:'scale(1.015)'},{opacity:1,transform:'none'}]}[dir];anim(el,K,{duration:dir=='tab'?240:420,easing:EASE});if(dir=='tab'||dir=='fade')stagger(el)}
+function stagger(el){[...el.children].filter(k=>k.offsetParent!==null).slice(0,7).forEach((k,i)=>anim(k,[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],{duration:480,delay:30+i*45,easing:EASE,fill:'backwards'}))}
+function liven(el){if(RM.matches)return;
+ el.querySelectorAll('.pbar i').forEach((b,i)=>anim(b,[{width:'0%'},{width:b.style.width||'0%'}],{duration:900,delay:160+i*40,easing:EASE,fill:'backwards'}));
+ el.querySelectorAll('.ring-fg').forEach(c=>anim(c,[{strokeDashoffset:c.dataset.c},{strokeDashoffset:c.getAttribute('stroke-dashoffset')}],{duration:1100,delay:180,easing:EASE,fill:'backwards'}));
+ el.querySelectorAll('.bars i').forEach((b,i)=>anim(b,[{transform:'scaleY(0)'},{transform:'none'}],{duration:700,delay:140+i*45,easing:EASE,fill:'backwards'}));
+ el.querySelectorAll('.cnt').forEach(nd=>{const to=+nd.dataset.to,t0=performance.now()+120,d=950;if(!to)return;nd.textContent='0';const f=now=>{const p=Math.max(0,Math.min(1,(now-t0)/d)),e=1-Math.pow(1-p,3);nd.textContent=Math.round(to*e).toLocaleString();if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}
+function go(id){const prev=curScr,moved=prev!==id,dir=navDir(prev,id),pe=$('#'+prev);document.querySelectorAll('.scr.out').forEach(s=>{s.getAnimations&&s.getAnimations().forEach(a=>a.cancel());s.classList.remove('out')});
+ if(id==='ob'&&prev!=='ob')obPrev=null;curScr=id;document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id===id));const t=TABS.includes(id);if(t)lastTab=id;$('#tabs').classList.toggle('on',t);const au=AUTH.indexOf(id)>-1;document.body.classList.toggle('auth',au);document.body.classList.toggle('inapp',id!=='splash'&&!au);document.querySelectorAll('#tabs [data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===(t?id:lastTab)));if(id!='camv')stopStream();const rf=({home:rHome,rec:rRec,rep:rRep,me:rMe,data:rData,notif:rNotif,help:rHelp})[id];if(rf)rf();const ne=$('#'+id);ne.scrollTop=0;if(moved&&!RM.matches){if(pe&&prev!=='splash')leave(pe,dir);enter(ne,prev==='splash'?'fade':dir)}if(moved&&TABS.includes(id))liven(ne)}
+function sheet(o){$('#dim').classList.toggle('on',!!o);$('#sheet').classList.toggle('on',!!o);if(o&&!RM.matches)$('#sheet').querySelectorAll('.shh,.sh,.c').forEach((k,i)=>anim(k,[{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],{duration:420,delay:60+i*45,easing:EASE,fill:'backwards'}))}
 let MB=[];function modal(t,b,bs,inp){MB=bs;$('#mdl').innerHTML=`<div class="mb"><h3>${t}</h3><p>${b}</p>${inp?`<input class="fld" id="mi" type="${inp.type||'text'}" placeholder="${inp.ph||''}" value="${esc(inp.val||'')}" style="margin:-8px 0 18px" autocomplete="off">`:''}<div class="mr">${bs.map((x,i)=>`<button class="mbtn ${x.c||''}" onclick="mAct(${i})">${x.t}</button>`).join('')}</div></div>`;$('#mdl').classList.add('on')}
 function mAct(i){const v=($('#mi')||{}).value;$('#mdl').classList.remove('on');const f=MB[i].f;f&&f(v)}
 const INFO=[['서비스 이용약관','GreenLight는 식사를 가볍게 기록하고 참고 정보를 보여주는 앱이에요. 제공하는 영양 정보와 조언은 추정치이며 진단·치료를 대신하지 않아요.'],['개인정보 처리 안내','입력한 정보와 기록은 이 기기에만 저장돼요. AI 분석을 쓰면 선택한 사진, 음식 이름, 입력한 신체·건강 정보(성별·나이·키·몸무게·질환)가 분석을 위해 Google Gemini로 전송돼요.'],['마케팅 정보 수신 (선택)','새 소식을 받아보는 데 동의하는 선택 항목이에요. 동의하지 않아도 앱을 모두 쓸 수 있어요.']];
@@ -311,12 +544,12 @@ const terms=i=>modal(INFO[i][0],INFO[i][1],[{t:'확인'}]);
 /* ===== 로그인 · 가입 ===== */
 function chk(){$('#le').textContent='';$('#pw').classList.remove('err');$('#lb').disabled=!(/^\S+@\S+\.\S+$/.test($('#em').value.trim())&&$('#pw').value.length>=6)}
 function eye(){const p=$('#pw'),h=p.type=='password';p.type=h?'text':'password';$('#login .pw .ib').innerHTML=ic(h?'eyeoff':'eye')}
-function enter(){D.sess=1;save();D.p&&D.p.kcal?go('home'):D.introSeen?startOb():go('intro')}
-function guest(){D.acct=null;enter()}
+function enterApp(){D.sess=1;save();D.p&&D.p.kcal?go('home'):D.introSeen?startOb():go('intro')}
+function guest(){D.acct=null;enterApp()}
 function logout(){D.sess=0;save();go('login')}
 const ACC=()=>JSON.parse(ST.g('gl_acc')||'{}');
 async function hsh(s){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('gl:'+s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){let h=5381;for(const c of 'gl:'+s)h=(h*33^c.charCodeAt(0))>>>0;return'f'+h}}
-async function login(){const e=$('#em').value.trim().toLowerCase(),b=$('#lb');b.disabled=true;b.textContent='로그인 중…';await new Promise(r=>setTimeout(r,500));const a=ACC()[e];if(!a||a!==await hsh($('#pw').value)){b.textContent='로그인';b.disabled=false;$('#le').textContent='이메일 또는 비밀번호가 맞지 않아요';$('#pw').classList.add('err');return}b.textContent='로그인';D.acct={email:e};enter()}
+async function login(){const e=$('#em').value.trim().toLowerCase(),b=$('#lb');b.disabled=true;b.textContent='로그인 중…';await new Promise(r=>setTimeout(r,500));const a=ACC()[e];if(!a||a!==await hsh($('#pw').value)){b.textContent='로그인';b.disabled=false;$('#le').textContent='이메일 또는 비밀번호가 맞지 않아요';$('#pw').classList.add('err');return}b.textContent='로그인';D.acct={email:e};enterApp()}
 function forgot(){modal('비밀번호 찾기','가입한 이메일을 입력해 주세요. 이 기기에 저장된 계정은 새 비밀번호를 바로 정할 수 있어요.',[{t:'취소',c:'g'},{t:'다음',f:v=>{v=(v||'').trim().toLowerCase();if(!ACC()[v]){toast('가입된 이메일을 찾지 못했어요');return}setTimeout(()=>modal('새 비밀번호','6자 이상으로 입력해 주세요.',[{t:'취소',c:'g'},{t:'변경',f:async p=>{if((p||'').length<6){toast('6자 이상으로 입력해 주세요');return}const A=ACC();A[v]=await hsh(p);ST.s('gl_acc',JSON.stringify(A));toast('비밀번호를 바꿨어요')}}],{ph:'새 비밀번호',type:'password'}),50)}}],{ph:'이메일 주소'})}
 let AG=[0,0,0];
 function openSignup(){['sem','spw','spc'].forEach(i=>$('#'+i).value='');AG=[0,0,0];sgUp();go('signup')}
@@ -327,7 +560,7 @@ function sgUp(){const E=$('#sem').value.trim(),A=$('#spw').value,C=$('#spc').val
  $('#sb').disabled=!(v.e&&v.p&&v.c&&AG[0]&&AG[1]);$('#sh').style.display=AG[0]&&AG[1]?'none':'block'}
 function agAll(){const o=AG.every(Boolean)?0:1;AG=[o,o,o];sgUp()}
 function agOne(i){AG[i]=AG[i]?0:1;sgUp()}
-async function signup(){const e=$('#sem').value.trim().toLowerCase(),A=ACC();if(A[e]){$('#e1').textContent='이미 가입된 이메일이에요';$('#sem').classList.add('err');return}A[e]=await hsh($('#spw').value);ST.s('gl_acc',JSON.stringify(A));D.acct={email:e,mk:!!AG[2]};save();toast('가입이 완료됐어요');enter()}
+async function signup(){const e=$('#sem').value.trim().toLowerCase(),A=ACC();if(A[e]){$('#e1').textContent='이미 가입된 이메일이에요';$('#sem').classList.add('err');return}A[e]=await hsh($('#spw').value);ST.s('gl_acc',JSON.stringify(A));D.acct={email:e,mk:!!AG[2]};save();toast('가입이 완료됐어요');enterApp()}
 
 /* ===== 온보딩 (질문은 한 화면에 하나) ===== */
 let P={},si=0;const ACT=[['거의 앉아서 지내요',1.2],['가벼운 활동',1.375],['자주 움직여요',1.55]],GOAL=[['감량',-400],['유지',0],['증량',300],['식습관 개선',0]];
@@ -351,25 +584,27 @@ function up(){const b=$('#nb');if(b)b.disabled=!ok()}
 function nx(skip){if(!skip&&!ok())return;if(skip)delete P[STEPS[si].k];si++;rOb()}
 function finish(){P.kcal=+P.kcal||calc();D.p=P;save();go('home')}
 function rOb(){const el=$('#ob'),back=si?'si--;rOb()':"go('intro')";
- if(si==STEPS.length){if(!P.kcal)P.kcal=calc();el.innerHTML=hdr(back,'')+`<div class="pbar"><i style="width:100%"></i></div><h2>참고 목표예요</h2><p class="sub">진단이 아니라 참고용이며, 직접 수정할 수 있어요.</p><div class="card mint" style="margin-top:24px"><p class="cap">하루 열량 (kcal)</p><input class="fld" id="kc" type="number" value="${P.kcal}" style="margin-top:8px" oninput="P.kcal=+this.value;$('#mm').textContent=mt(this.value)"><p class="cap" id="mm" style="margin-top:14px">${mt(P.kcal)}</p></div><div class="sp"></div><button class="btn" onclick="finish()">오늘 화면 시작하기</button>`;return}
+ if(si==STEPS.length){if(!P.kcal)P.kcal=calc();setTimeout(obAnim);el.innerHTML=hdr(back,'')+`<div class="pbar"><i style="width:100%"></i></div><h2>참고 목표예요</h2><p class="sub">진단이 아니라 참고용이며, 직접 수정할 수 있어요.</p><div class="card mint" style="margin-top:24px"><p class="cap">하루 열량 (kcal)</p><input class="fld" id="kc" type="number" value="${P.kcal}" style="margin-top:8px" oninput="P.kcal=+this.value;$('#mm').textContent=mt(this.value)"><p class="cap" id="mm" style="margin-top:14px">${mt(P.kcal)}</p></div><div class="sp"></div><button class="btn" onclick="finish()">오늘 화면 시작하기</button>`;return}
  const s=STEPS[si],v=P[s.k]==null?'':P[s.k],U={by:'년',h:'cm',w:'kg'}[s.k];let body='';
  if(s.t=='ms'){const a=P[s.k]||[];body=`<div class="chips">${s.o.map(o=>`<button class="chip m ${a.includes(o)?'on':''}" onclick="tg('${s.k}','${o}')">${o}</button>`).join('')}</div><input class="fld" style="margin-top:16px" placeholder="${s.ph}" value="${esc(P[s.k+'x']||'')}" oninput="P['${s.k}x']=this.value"><p class="cap" style="margin-top:12px">선택 입력이에요. 건강 정보는 식사 팁에 꼭 필요한 만큼만 이 기기에 저장해요.</p>`}
  else if(s.t=='ch')body=s.o.map(o=>`<button class="opt ${v==o?'on':''}" onclick="P.${s.k}='${o}';rOb()">${o}</button>`).join('');
  else if(s.t=='num')body=`<div class="bigin"><input class="fld" id="in" type="number" inputmode="numeric" placeholder="${s.ph.replace(/^예: /,'')}" value="${v}" oninput="P.${s.k}=this.value?+this.value:'';up()"><span>${U||''}</span></div>`;
  else body=`<input class="fld" id="in" type="text" placeholder="${s.ph}" value="${esc(v)}" style="margin-top:22px" oninput="P.${s.k}=this.value;up()">`;
- el.innerHTML=hdr(back,'',s.opt?`<a class="lnk" onclick="nx(1)">건너뛰기</a>`:'')+`<div class="pbar"><i style="width:${(si+1)/(STEPS.length+1)*100}%"></i></div><h2>${s.q}</h2>${s.h?`<p class="sub">${s.h}</p>`:''}${body}<div class="sp"></div>${s.t=='ms'?'<button class="btn sec" style="margin-bottom:10px" onclick="nx(1)">선택하지 않고 계속</button>':''}<button class="btn" id="nb" onclick="nx()">다음</button>`;up();if($('#in')&&s.t!='ch'&&s.t!='ms')$('#in').focus()}
+ el.innerHTML=hdr(back,'',s.opt?`<a class="lnk" onclick="nx(1)">건너뛰기</a>`:'')+`<div class="pbar"><i style="width:${(si+1)/(STEPS.length+1)*100}%"></i></div><h2>${s.q}</h2>${s.h?`<p class="sub">${s.h}</p>`:''}${body}<div class="sp"></div>${s.t=='ms'?'<button class="btn sec" style="margin-bottom:10px" onclick="nx(1)">선택하지 않고 계속</button>':''}<button class="btn" id="nb" onclick="nx()">다음</button>`;up();obAnim();if($('#in')&&s.t!='ch'&&s.t!='ms')$('#in').focus({preventScroll:true})}
+function obAnim(){const el=$('#ob');if(obPrev!=null&&obPrev!==si&&!RM.matches){const d=si>obPrev?1:-1,n=STEPS.length+1,bar=el.querySelector('.pbar i');if(bar)anim(bar,[{width:(obPrev+1)/n*100+'%'},{width:bar.style.width}],{duration:450,easing:EASE});[...el.children].slice(2).forEach((k,i)=>anim(k,[{opacity:0,transform:`translateX(${d*28}px)`},{opacity:1,transform:'none'}],{duration:380,delay:i*30,easing:EASE,fill:'backwards'}))}obPrev=si}
 function editGoal(){P=Object.assign({},D.p||{});si=STEPS.length;go('ob');rOb()}
 function editStep(i){P=Object.assign({},D.p||{});si=i;go('ob');rOb()}
 
 /* ===== 오늘 홈 ===== */
-function rHome(){const p=D.p||{kcal:1800},t=sum(tl()),m=mac(p.kcal),w=D.water[day()]||0,g=WG(),n=new Date(),pc=r0(t.k/p.kcal*100),C=2*Math.PI*43,r=Math.min(t.k/p.kcal,1),over=t.k>p.kcal,nudge=over?(pc<=115?'가벼운 산책을 권장합니다':'땀을 흘릴 수 있는 운동을 진행해주세요!'):'';
- const bar=(a,v,g,u,x='')=>`<div class="mc"><div><span>${a}${x}</span><em>${v}${u} / ${g}${u} · ${st(v,g)}</em></div><div class="pbar"><i style="width:${Math.min(v/g*100,100)}%"></i></div></div>`;
- const Ls=tl().sort((a,b)=>a.t-b.t);
- $('#home').innerHTML=`<div class="top"><div><h2>오늘, ${DOW[n.getDay()]}요일</h2><p class="cap">${n.getMonth()+1}월 ${n.getDate()}일</p></div><button class="av" onclick="go('me')" aria-label="마이">${ic('user',20)}</button></div>
- <div class="card sm"><div><p class="cap">오늘 섭취</p><div class="bn">${t.k} <small>/ ${p.kcal} kcal</small></div><p style="font-size:14px;margin-top:2px">${over?`참고량을 ${t.k-p.kcal} kcal 넘었어요`:`남은 참고량 ${p.kcal-t.k} kcal`}</p></div><div class="rgw"><svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="43" fill="none" stroke="#E4F4E7" stroke-width="10"/><circle cx="48" cy="48" r="43" fill="none" stroke="#52A85A" stroke-width="10" stroke-linecap="round" stroke-dasharray="${Math.max(r*C,.01)} ${C}" transform="rotate(-90 48 48)"/></svg><div><b>${pc}%</b><span>오늘 균형</span></div></div></div>
+function rHome(){const p=D.p||{kcal:1800},t=sum(tl()),m=mac(p.kcal),w=D.water[day()]||0,g=WG(),n=new Date(),pc=r0(t.k/p.kcal*100),C=+(2*Math.PI*43).toFixed(2),r=Math.min(t.k/p.kcal,1),over=t.k>p.kcal,nudge=over?(pc<=115?'가벼운 산책을 권장합니다':'땀을 흘릴 수 있는 운동을 진행해주세요!'):'';
+ const h=n.getHours(),greet=h<5?'편안한 밤이에요':h<11?'좋은 아침이에요':h<17?'좋은 오후예요':'좋은 저녁이에요',who=p.nick?esc(p.nick)+'님, ':'';
+ const Ls=tl().sort((a,b)=>a.t-b.t),pw=(v,g)=>Math.min(v/g*100,100);
+ $('#home').innerHTML=`<div class="top"><div><p class="eyebrow">${n.getMonth()+1}월 ${n.getDate()}일 ${DOW[n.getDay()]}요일</p><h2>${who}${greet}</h2></div><button class="av" onclick="go('me')" aria-label="마이">${ic('user',20)}</button></div>
+ <div class="card sm hero"><div><p class="cap">오늘 섭취</p><div class="bn"><span class="cnt" data-to="${t.k}">${t.k.toLocaleString()}</span><small> / ${p.kcal.toLocaleString()} kcal</small></div><p class="hero-sub">${over?`참고량보다 ${(t.k-p.kcal).toLocaleString()} kcal 더 먹었어요`:`${(p.kcal-t.k).toLocaleString()} kcal 더 먹을 수 있어요`}</p></div><div class="rgw"><svg viewBox="0 0 96 96"><circle class="ring-bg" cx="48" cy="48" r="43" fill="none" stroke-width="9"/><circle class="ring-fg" cx="48" cy="48" r="43" fill="none" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${(C-Math.max(r*C,.01)).toFixed(2)}" data-c="${C}" transform="rotate(-90 48 48)"/></svg><div><b>${pc}%</b><span>목표 대비</span></div></div></div>
  ${nudge?`<p class="nud">${nudge}</p>`:''}
- <div class="card">${bar('탄수화물',t.c,m.c,'g')}${bar('단백질',t.p,m.p,'g')}${bar('지방',t.f,m.f,'g')}${bar('수분량',w,g,'ml','<button class="chip" onclick="addW()">+200ml</button>')}</div>
- <h3 class="ct" style="margin:6px 0 10px">오늘의 식사</h3><div class="card">${Ls.length?grp(Ls):'<p class="sub c" style="margin:6px 0 16px">아직 기록이 없어요</p><button class="btn" onclick="startRec()">+ 식사 기록하기</button>'}</div>`}
+ <div class="card macros"><div class="m3">${[['탄수화물',t.c,m.c],['단백질',t.p,m.p],['지방',t.f,m.f]].map(x=>`<div class="m3i"><span>${x[0]}</span><b>${x[1]}<small>/ ${x[2]}g</small></b><div class="pbar"><i style="width:${pw(x[1],x[2])}%"></i></div><em>${st(x[1],x[2])}</em></div>`).join('')}</div>
+ <div class="water"><div><span class="cap">수분</span><b>${w.toLocaleString()}<small> / ${g.toLocaleString()}ml</small></b></div><div class="pbar"><i style="width:${pw(w,g)}%"></i></div><button class="chip" onclick="addW()">+200ml</button></div></div>
+ <div class="sec-h"><h3 class="ct">오늘의 식사</h3>${Ls.length?'<a class="lnk" onclick="startRec()">+ 추가</a>':''}</div><div class="card">${Ls.length?grp(Ls):'<p class="sub c" style="margin:10px 0 16px">아직 기록이 없어요</p><button class="btn" onclick="startRec()">+ 식사 기록하기</button>'}</div>`}
 const mrow=m=>`<button class="ml" onclick="openMeal(${m.id})"><span class="th2">${m.img?`<img src="${m.img}" alt="">`:ic('leaf',20)}</span><span class="mt"><small>${m.meal} · ${hm(m.t)}</small><b>${esc(mname(m))}</b></span><b class="mk">${r0(tot(m).k)} kcal</b></button>`;
 function addW(){D.water[day()]=(D.water[day()]||0)+200;save();rHome()}
 function startRec(d){addDate=typeof d=='string'?d:null;sheet(1)}
@@ -378,10 +613,11 @@ function startRec(d){addDate=typeof d=='string'?d:null;sheet(1)}
 let cy,cm,sel;
 function rRec(){const n=new Date();if(cy==null){cy=n.getFullYear();cm=n.getMonth();sel=day()}
  const first=new Date(cy,cm,1).getDay(),dim=new Date(cy,cm+1,0).getDate(),today=day(),isNow=cy==n.getFullYear()&&cm==n.getMonth();let cells='<span></span>'.repeat(first);
- for(let d=1;d<=dim;d++){const k=cy+'-'+String(cm+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'),has=D.logs.some(l=>l.d==k),fut=k>today;cells+=`<button class="${k==sel?'on':''} ${has?'dot':''}" ${fut?'disabled':''} onclick="sel='${k}';rRec()">${d}</button>`}
+ for(let d=1;d<=dim;d++){const k=cy+'-'+String(cm+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'),has=D.logs.some(l=>l.d==k),fut=k>today;cells+=`<button class="${k==sel?'on':''} ${has?'dot':''}" ${fut?'disabled':''} onclick="sel='${k}';rRec();recPick()">${d}</button>`}
  const Ls=tl(sel).sort((a,b)=>a.t-b.t),t=sum(Ls),[,mm,dd]=sel.split('-');
  $('#rec').innerHTML=`<div class="recL"><div class="cn"><button class="ib" onclick="mv(-1)" aria-label="이전 달">${ic('back')}</button><b class="h20">${cy}년 ${cm+1}월</b><button class="ib" onclick="mv(1)" ${isNow?'disabled':''} aria-label="다음 달">${ic('fwd')}</button></div><p class="cap c" style="margin:-4px 0 10px">기록이 있는 날짜를 선택하세요.</p><div class="cal wk">${[...DOW].map(x=>`<span>${x}</span>`).join('')}</div><div class="cal">${cells}</div></div><div class="recR"><h3 class="ct" style="margin:20px 0 10px">${+mm}월 ${+dd}일 · ${t.k.toLocaleString()} kcal</h3>`+(Ls.length?`<div class="card">${grp(Ls)}</div>`:`<p class="sub c" style="margin:6px 0 16px">이 날짜에는 기록이 없어요</p>`)+`<button class="btn sec" onclick="startRec(sel)">기록 추가</button></div>`}
-function mv(d){cm+=d;if(cm<0){cm=11;cy--}if(cm>11){cm=0;cy++}rRec()}
+function recPick(){const r=$('#rec .recR');if(r&&!RM.matches)anim(r,[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:320,easing:EASE})}
+function mv(d){cm+=d;if(cm<0){cm=11;cy--}if(cm>11){cm=0;cy++}rRec();const c=$('#rec .cal:not(.wk)');if(c&&!RM.matches)anim(c,[{opacity:0,transform:`translateX(${d*20}px)`},{opacity:1,transform:'none'}],{duration:360,easing:EASE})}
 
 /* ===== 주간 리포트 ===== */
 let wo=0;
@@ -389,7 +625,7 @@ function rRep(){const g=(D.p||{kcal:1800}).kcal,days=[];for(let i=6;i>=0;i--){co
  const rows=days.map(d=>({d,ls:tl(day(d))})).map(x=>({...x,k:sum(x.ls).k})),on=rows.filter(x=>x.k),av=on.length?r0(on.reduce((s,x)=>s+x.k,0)/on.length):0,mx=Math.max(g*.6,...rows.map(x=>x.k));
  const all=sum(on.flatMap(x=>x.ls)),f=d=>`${d.getMonth()+1}월 ${d.getDate()}일`,slot={};on.forEach(x=>new Set(x.ls.map(m=>m.meal)).forEach(s=>slot[s]=(slot[s]||0)+1));
  const ins=[];if(on.length>=3){const b=Object.entries(slot).sort((a,b)=>b[1]-a[1])[0];if(b&&b[1]>=Math.ceil(on.length*.6))ins.push(`${b[0]} 기록이 꾸준했어요`);if(!slot['간식'])ins.push('다음 주에는 간식도 한 번 기록해보세요')}
- $('#rep').innerHTML=`<div class="cn"><button class="ib" onclick="wo++;rRep()" aria-label="이전 주">${ic('back')}</button><b class="h20">주간 식습관 리포트</b><button class="ib" onclick="wo--;rRep()" ${wo?'':'disabled'} aria-label="다음 주">${ic('fwd')}</button></div><p class="cap c" style="margin-bottom:14px">${wo?wo+'주 전':'이번 주'} · ${f(days[0])} ~ ${f(days[6])}</p>
+ $('#rep').innerHTML=`<div class="cn"><button class="ib" onclick="wo++;rRep();liven($('#rep'))" aria-label="이전 주">${ic('back')}</button><b class="h20">주간 식습관 리포트</b><button class="ib" onclick="wo--;rRep();liven($('#rep'))" ${wo?'':'disabled'} aria-label="다음 주">${ic('fwd')}</button></div><p class="cap c" style="margin-bottom:14px">${wo?wo+'주 전':'이번 주'} · ${f(days[0])} ~ ${f(days[6])}</p>
  <div class="card"><b class="ct">기록한 날 ${on.length}일</b><p class="cap" style="font-size:14px">평균 ${av.toLocaleString()} kcal</p><div class="bars">${rows.map(x=>`<div><em>${x.k||''}</em><i style="height:${x.k/mx*80}px"></i>${DOW[x.d.getDay()]}</div>`).join('')}</div></div>
  <div class="card"><b class="ct">탄단지 평균</b><p class="cap" style="font-size:14px;margin-top:2px">${on.length?`탄수화물 ${r0(all.c/on.length)}g · 단백질 ${r0(all.p/on.length)}g · 지방 ${r0(all.f/on.length)}g`:'기록이 쌓이면 보여드릴게요'}</p>${on.length?mbars(all,on.length,g):''}</div>
  <div class="card mint"><b class="ct">실천 인사이트</b>${ins.length?`<ul class="ins" style="margin-top:6px">${ins.map(x=>`<li>${x}</li>`).join('')}</ul>`:'<p class="sub" style="font-size:14px">기록이 더 쌓이면 추세를 보여드릴게요</p>'}</div>
@@ -555,6 +791,6 @@ setInterval(()=>{const n=new Date(),t=hm2(n),k=day()+t,sl={'08:30':'아침','12:
 /* ===== 시작 ===== */
 (()=>{const L=$('#splash .logo').src;document.querySelectorAll('#login .logo,.hero-logo,.side-logo').forEach(i=>i.src=L)})();
 document.querySelectorAll('[data-ic]').forEach(e=>e.innerHTML=ic(e.dataset.ic,+e.dataset.s||24));
-const boot=()=>{try{$('#splash').classList.contains('on')&&(D.sess?enter():go('login'))}catch(e){try{go('login')}catch(_){}}};setTimeout(boot,1400);window.addEventListener('error',()=>{try{$('#splash').classList.contains('on')&&go('login')}catch(e){}});
+const boot=()=>{try{$('#splash').classList.contains('on')&&(D.sess?enterApp():go('login'))}catch(e){try{go('login')}catch(_){}}};setTimeout(boot,1400);window.addEventListener('error',()=>{try{$('#splash').classList.contains('on')&&go('login')}catch(e){}});
 </script>
 </body></html>
